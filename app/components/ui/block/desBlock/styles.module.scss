@@ -1,0 +1,134 @@
+.desblock {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #edf1f4;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 2rem;
+}
+
+.headblock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftdecor,
+.rightdecor,
+.bottomleftdecor {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10px;
+  background-color: #edf1f4;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.leftdecor {
+  border-top-left-radius: 20px;
+  .innerblock {
+    border-top-left-radius: 20px;
+  }
+}
+.rightdecor {
+  border-top-right-radius: 20px;
+  .innerblock {
+    border-top-right-radius: 20px;
+  }
+}
+.bottomleftdecor {
+  border-bottom-left-radius: 20px;
+  .innerblock {
+    border-bottom-left-radius: 20px;
+  }
+}
+
+.innerblock {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgb(255, 180, 30);
+}
+
+.title {
+  width: calc(100% - 130px);
+  h3 {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-left: 1rem;
+    font-size: 2.2rem;
+    line-height: 1.5;
+    font-weight: 700;
+    border-bottom: 3px solid rgb(255, 180, 30);
+    &::first-letter {
+      font-size: 2.8rem;
+      color: rgb(255, 180, 30);
+    }
+  }
+}
+
+.line {
+  width: 100%;
+  height: 1rem;
+  background-color: rgb(255, 180, 30);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0px;
+}
+
+.bodyblock {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.verline_wrapper {
+  align-self: stretch;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.verline {
+  align-self: stretch;
+  min-height: calc(100% - 45px);
+  width: 1rem;
+  background-color: #edf1f4;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  border-radius: 0.5rem;
+  margin: 0 10px;
+}
+
+.whitedecor {
+  width: 3rem;
+  height: 3rem;
+  background-color: #edf1f4;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+}
+
+.content {
+  width: calc(100% - 50px);
+}
+
+.footer {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+  .line {
+    margin: 1rem 0;
+    width: calc(100% - 110px);
+  }
+}

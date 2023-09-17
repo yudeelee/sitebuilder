@@ -1,0 +1,31 @@
+.userImg {
+  position: absolute;
+  left: -7rem;
+  top: -1.5rem;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 30%;
+  padding: 1rem;
+  background-color: #252525;
+
+  img {
+    width: 100%;
+    border-radius: 30%;
+  }
+}
+
+.link {
+  display: block;
+  text-align: center;
+  min-width: 10rem;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 1s;
+  &:hover {
+    text-decoration: underline;
+  }
+}
