@@ -1,0 +1,24 @@
+@import '../../../../../styles/base.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  .headerButton {
+    background-color: $button-hover-color;
+    width: 50%;
+    padding: 1rem 2rem;
+    color: $icon-color;
+    border: none;
+    outline: none;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom: 1px solid $button-color;
+    &.active {
+      background-color: $background-secondary;
+      border: 1px solid $button-color;
+      border-bottom: none;
+    }
+  }
+}

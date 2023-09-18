@@ -1,7 +1,8 @@
 'use client';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setSelected } from '@/redux/features/element-slice';
+import { setSelected, setSelectedCl } from '@/redux/features/element-slice';
+import { setSelectedClass } from '@/redux/features/class-slice';
 import styles from './styles.module.scss';
 import React, { Fragment } from 'react';
 
@@ -25,7 +26,7 @@ const Canvas = () => {
           className:
             root.id == selected
               ? root.attr.className + ' ' + styles.selected
-              : root.attr.className + ' ' + 'hahaha',
+              : root.attr.className,
         },
         null
       );
@@ -49,7 +50,23 @@ const Canvas = () => {
   };
 
   const select = (e) => {
+    const element = elements.find(
+      (el) => el.id == e.target.getAttribute('data-id')
+    );
     dispatch(setSelected(e.target.getAttribute('data-id')));
+    if (element.selectedClass) {
+      dispatch(setSelectedClass(element.selectedClass));
+    } else if (element.attr.className) {
+      const selectedClass = element.attr.className.split(' ')[0];
+      dispatch(setSelectedClass(selectedClass));
+      dispatch(
+        setSelectedCl({
+          cl: selectedClass,
+          id: e.target.getAttribute('data-id'),
+        })
+      );
+    }
+    console.log(elements);
   };
 
   return (

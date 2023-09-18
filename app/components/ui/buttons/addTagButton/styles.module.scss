@@ -5,12 +5,16 @@
   height: 3.5rem;
   border-radius: 0.5rem;
   background-color: $button-color;
-  color: rgb(222, 222, 222);
+  color: $icon-color;
   border: none;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  &:hover {
+    background-color: $button-hover-color;
+    color: $icon-hover-color;
+  }
   svg {
     width: 3rem;
     height: 3rem;

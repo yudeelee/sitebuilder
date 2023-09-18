@@ -1,0 +1,61 @@
+@import '../../../../../../../styles/base.scss';
+
+.classes {
+  font-size: 1.4rem;
+}
+
+.header {
+  padding: 1rem;
+  background: $simple-gradient;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+}
+
+.open {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: $button-hover-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  &.hide {
+    transform: rotateZ(-90deg);
+  }
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.body {
+  padding: 1rem;
+  border-bottom: 2px solid $background-color;
+  transform-origin: top center;
+  transition: all 0.3s;
+  &.hide {
+    transform: scaleY(0);
+  }
+  select {
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: $document-color;
+    border: none;
+    outline: none;
+    margin-bottom: 0.5rem;
+    color: $icon-color;
+  }
+  .addButton {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: $button-color;
+    color: $icon-color;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+  }
+}
