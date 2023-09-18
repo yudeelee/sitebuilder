@@ -1,9 +1,11 @@
+@import '../styles/variables';
+
 html {
   font-size: 10px;
 }
 
 body {
-  background-color: #363636;
+  background-color: $background-color;
   margin: 0;
   padding: 0;
   color: rgb(255, 255, 255);

@@ -1,0 +1,105 @@
+@import '@/styles/base';
+
+.progect {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-color;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  background-color: $background-secondary;
+  border-bottom: 2px solid $background-color;
+  box-sizing: border-box;
+}
+
+.main {
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  right: 0;
+  height: calc(100vh - 12rem);
+}
+
+.elements {
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  width: 6rem;
+  height: calc(100vh - 12rem);
+  background-color: $background-secondary;
+  border-right: 2px solid $background-color;
+  box-sizing: border-box;
+}
+
+.properties {
+  position: fixed;
+  top: 6rem;
+  left: 6rem;
+  width: 30rem;
+  height: calc(100vh - 12rem);
+  background-color: $background-secondary;
+  border-right: 2px solid $background-color;
+  box-sizing: border-box;
+}
+
+.workspace {
+}
+
+.advanced {
+  position: fixed;
+  top: 6rem;
+  left: 36rem;
+  right: 30rem;
+  height: 10rem;
+  background-color: $background-secondary;
+  border-bottom: 2px solid $background-color;
+  box-sizing: border-box;
+}
+
+.media {
+  position: fixed;
+  top: 16rem;
+  left: 36rem;
+  right: 30rem;
+  height: 3rem;
+  background-color: $background-secondary;
+  border-bottom: 2px solid $background-color;
+  box-sizing: border-box;
+}
+
+.document {
+  position: fixed;
+  top: 19rem;
+  left: 36rem;
+  right: 30rem;
+  bottom: 6rem;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  position: fixed;
+  top: 6rem;
+  right: 0;
+  width: 30rem;
+  height: calc(100vh - 12rem);
+  background-color: $background-secondary;
+  border-left: 2px solid $background-color;
+  box-sizing: border-box;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  background-color: $background-secondary;
+  border-top: 2px solid $background-color;
+  box-sizing: border-box;
+}
