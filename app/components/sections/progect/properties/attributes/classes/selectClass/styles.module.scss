@@ -1,0 +1,89 @@
+@import '@/styles/base';
+
+.selectClass {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.selected {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: $document-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  &.hide {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+}
+
+.open {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: $button-hover-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  &.hide {
+    transform: rotateZ(-90deg);
+  }
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.list {
+  position: absolute;
+  transform-origin: top center;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem;
+  background-color: $document-color;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 1px;
+  transform: scaleY(0);
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-size: 1.2rem;
+  opacity: 0;
+  &.hide {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.itemButton {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: $button-hover-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+.itemButtonEmpty {
+  width: 2.4rem;
+}

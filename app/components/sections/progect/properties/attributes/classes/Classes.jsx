@@ -1,7 +1,10 @@
+'use client';
+
 import { useSelector } from 'react-redux';
-import styles from './style.module.scss';
+import styles from './styles.module.scss';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { useState } from 'react';
+import SelectClass from './selectClass/SelectClass';
 
 const psedo = ['---', ':hover', 'first-child', 'last-child'];
 
@@ -17,7 +20,7 @@ const Classes = () => {
   return (
     <div className={styles.classes}>
       <div className={styles.header}>
-        {selCl || 'Classes'}
+        Classes
         <div
           className={`${styles.open} ${!open ? styles.hide : ''}`}
           onClick={() => setOpen(!open)}
@@ -26,13 +29,7 @@ const Classes = () => {
         </div>
       </div>
       <div className={`${styles.body} ${!open ? styles.hide : ''}`}>
-        <select>
-          {classes?.map((cl, idx) => (
-            <option key={idx} value={cl}>
-              {cl}
-            </option>
-          ))}
-        </select>
+        <SelectClass values={classes} selected={selCl} />
         <select>
           {psedo?.map((cl, idx) => (
             <option key={idx} value={cl}>
