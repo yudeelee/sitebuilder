@@ -1,0 +1,18 @@
+@import '../../../../../styles/base';
+
+.AddTagButton {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  background-color: $button-color;
+  color: rgb(222, 222, 222);
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 3rem;
+    height: 3rem;
+  }
+}

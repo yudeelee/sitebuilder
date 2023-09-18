@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import Header from '../components/sections/progect/progectHeader/page';
 import Canvas from '../components/sections/progect/canvas/Canvas';
+import Elements from '../components/sections/progect/elements/Elements';
 
 const Progect = () => {
   return (
@@ -9,7 +10,9 @@ const Progect = () => {
         <Header />
       </div>
       <div className={styles.main}>
-        <div className={styles.elements}></div>
+        <div className={styles.elements}>
+          <Elements />
+        </div>
         <div className={styles.properties}></div>
         <div className={styles.workspace}>
           <div className={styles.advanced}></div>

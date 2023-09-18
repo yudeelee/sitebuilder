@@ -30,7 +30,7 @@
   position: fixed;
   top: 6rem;
   left: 0;
-  width: 6rem;
+  width: 4.5rem;
   height: calc(100vh - 12rem);
   background-color: $background-secondary;
   border-right: 2px solid $background-color;
@@ -40,7 +40,7 @@
 .properties {
   position: fixed;
   top: 6rem;
-  left: 6rem;
+  left: 4.5rem;
   width: 30rem;
   height: calc(100vh - 12rem);
   background-color: $background-secondary;
@@ -54,7 +54,7 @@
 .advanced {
   position: fixed;
   top: 6rem;
-  left: 36rem;
+  left: 34.5rem;
   right: 30rem;
   height: 10rem;
   background-color: $background-secondary;
@@ -65,7 +65,7 @@
 .media {
   position: fixed;
   top: 16rem;
-  left: 36rem;
+  left: 34.5rem;
   right: 30rem;
   height: 3rem;
   background-color: $background-secondary;
@@ -76,7 +76,7 @@
 .document {
   position: fixed;
   top: 19rem;
-  left: 36rem;
+  left: 34.5rem;
   right: 30rem;
   bottom: 6rem;
   box-sizing: border-box;

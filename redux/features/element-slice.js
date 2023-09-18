@@ -24,7 +24,7 @@ export const element = createSlice({
       return state;
     },
     setSelected(state, action) {
-      return state;
+      state.selected = action.payload;
     },
     getSelected(state) {
       return state;
