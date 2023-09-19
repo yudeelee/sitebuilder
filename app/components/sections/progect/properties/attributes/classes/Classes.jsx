@@ -18,9 +18,11 @@ const Classes = () => {
   const [add, setAdd] = useState(false);
   const [newClass, setNewClass] = useState('');
   const selected = useSelector((state) => state.element.selected);
-  const classes = useSelector((state) => state.element.elements)
+  let classes = useSelector((state) => state.element.elements)
     .find((el) => el.id == selected)
-    ?.attr?.className?.split(' ');
+    ?.attr?.className?.trim()
+    .split(' ');
+  if (classes?.length === 1 && classes[0] === '') classes = [];
 
   const selCl = useSelector((state) => state.class.selected);
 
@@ -53,6 +55,7 @@ const Classes = () => {
           <input
             type='text'
             placeholder='Enter new class name'
+            value={newClass || ''}
             onChange={(e) => setNewClass(e.target.value)}
           />
           <button

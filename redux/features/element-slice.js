@@ -66,6 +66,15 @@ export const element = createSlice({
       state.elements.find((el) => el.id == state.selected).selectedClass =
         action.payload;
     },
+    deleteClass(state, action) {
+      const classes = state.elements
+        .find((el) => el.id == state.selected)
+        ?.attr?.className.split(' ');
+      let newClasses = classes.filter((cl) => cl !== action.payload);
+      newClasses = newClasses.join(' ');
+      state.elements.find((el) => el.id == state.selected).attr.className =
+        newClasses;
+    },
   },
 });
 
@@ -75,5 +84,6 @@ export const {
   setSelected,
   setSelectedCl,
   insertClass,
+  deleteClass,
 } = element.actions;
 export default element.reducer;
