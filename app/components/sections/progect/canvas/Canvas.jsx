@@ -50,23 +50,19 @@ const Canvas = () => {
   };
 
   const select = (e) => {
-    const element = elements.find(
-      (el) => el.id == e.target.getAttribute('data-id')
-    );
-    dispatch(setSelected(e.target.getAttribute('data-id')));
-    if (element.selectedClass) {
-      dispatch(setSelectedClass(element.selectedClass));
-    } else if (element.attr.className) {
-      const selectedClass = element.attr.className.split(' ')[0];
-      dispatch(setSelectedClass(selectedClass));
-      dispatch(
-        setSelectedCl({
-          cl: selectedClass,
-          id: e.target.getAttribute('data-id'),
-        })
+    if (e.target.className !== styles.document) {
+      const element = elements.find(
+        (el) => el.id == e.target.getAttribute('data-id')
       );
+      dispatch(setSelected(e.target.getAttribute('data-id')));
+      if (element.selectedClass) {
+        dispatch(setSelectedClass(element.selectedClass));
+      } else if (element.attr.className) {
+        const selectedClass = element.attr.className.split(' ')[0];
+        dispatch(setSelectedClass(selectedClass));
+        dispatch(setSelectedCl(selectedClass));
+      }
     }
-    console.log(elements);
   };
 
   return (

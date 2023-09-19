@@ -50,12 +50,30 @@ export const element = createSlice({
       state.selected = action.payload;
     },
     setSelectedCl(state, action) {
-      state.elements.find((el) => el.id == action.payload.id).selectedClass =
-        action.payload.cl;
+      state.elements.find((el) => el.id == state.selected).selectedClass =
+        action.payload;
+    },
+    insertClass(state, action) {
+      const classes = state.elements
+        .find((el) => el.id == state.selected)
+        ?.attr?.className.split(' ');
+      if (!classes.includes(action.payload)) {
+        classes?.push(action.payload);
+        const newClasses = classes?.join(' ');
+        state.elements.find((el) => el.id == state.selected).attr.className =
+          newClasses;
+      }
+      state.elements.find((el) => el.id == state.selected).selectedClass =
+        action.payload;
     },
   },
 });
 
-export const { insertElement, deleteElement, setSelected, setSelectedCl } =
-  element.actions;
+export const {
+  insertElement,
+  deleteElement,
+  setSelected,
+  setSelectedCl,
+  insertClass,
+} = element.actions;
 export default element.reducer;

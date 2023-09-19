@@ -1,15 +1,22 @@
 'use client';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { useState } from 'react';
 import SelectClass from './selectClass/SelectClass';
+import { insertClass } from '@/redux/features/element-slice';
+import { setSelectedClass } from '@/redux/features/class-slice';
+import { TiPlus } from 'react-icons/ti';
+import { IoClose } from 'react-icons/io5';
 
 const psedo = ['---', ':hover', 'first-child', 'last-child'];
 
 const Classes = () => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
+  const [add, setAdd] = useState(false);
+  const [newClass, setNewClass] = useState('');
   const selected = useSelector((state) => state.element.selected);
   const classes = useSelector((state) => state.element.elements)
     .find((el) => el.id == selected)
@@ -30,14 +37,40 @@ const Classes = () => {
       </div>
       <div className={`${styles.body} ${!open ? styles.hide : ''}`}>
         <SelectClass values={classes} selected={selCl} />
-        <select>
+        {/* <select>
           {psedo?.map((cl, idx) => (
             <option key={idx} value={cl}>
               {cl}
             </option>
           ))}
-        </select>
-        <button className={styles.addButton}>Add</button>
+        </select> */}
+        <button className={styles.addButton} onClick={() => setAdd(true)}>
+          Add
+        </button>
+        <div
+          className={`${styles['new-ClassInput']} ${!add ? styles.hide : ''}`}
+        >
+          <input
+            type='text'
+            placeholder='Enter new class name'
+            onChange={(e) => setNewClass(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              if (newClass.trim() !== '') {
+                dispatch(insertClass(newClass));
+                dispatch(setSelectedClass(newClass));
+                setNewClass('');
+                setAdd(false);
+              }
+            }}
+          >
+            <TiPlus />
+          </button>
+          <button onClick={() => setAdd(false)}>
+            <IoClose />
+          </button>
+        </div>
       </div>
     </div>
   );

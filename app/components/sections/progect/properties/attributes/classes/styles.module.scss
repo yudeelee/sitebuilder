@@ -60,3 +60,48 @@
     outline: none;
   }
 }
+
+.new-ClassInput {
+  position: absolute;
+  width: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  transform-origin: top center;
+  transition: all 0.3s;
+  &.hide {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  input {
+    width: calc(100% - 6.6rem);
+    background-color: $document-color;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: $icon-color;
+    box-sizing: border-box;
+    &::placeholder {
+      color: $button-color;
+    }
+  }
+  button {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: $button-color;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $icon-color;
+    padding: 0;
+    border-radius: 0.5rem;
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
