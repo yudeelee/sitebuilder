@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import Classes from './classes/Classes';
 import styles from './styles.module.scss';
 

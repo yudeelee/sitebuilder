@@ -8,7 +8,7 @@
 }
 
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -19,7 +19,7 @@
 }
 
 .main {
-  position: fixed;
+  position: absolute;
   top: 6rem;
   left: 0;
   right: 0;
@@ -27,7 +27,7 @@
 }
 
 .elements {
-  position: fixed;
+  position: absolute;
   top: 6rem;
   left: 0;
   width: 4.5rem;
@@ -38,7 +38,7 @@
 }
 
 .properties {
-  position: fixed;
+  position: absolute;
   top: 6rem;
   left: 4.5rem;
   width: 30rem;
@@ -52,7 +52,7 @@
 }
 
 .advanced {
-  position: fixed;
+  position: absolute;
   top: 6rem;
   left: 34.5rem;
   right: 30rem;
@@ -63,7 +63,7 @@
 }
 
 .media {
-  position: fixed;
+  position: absolute;
   top: 16rem;
   left: 34.5rem;
   right: 30rem;
@@ -74,7 +74,7 @@
 }
 
 .document {
-  position: fixed;
+  position: absolute;
   top: 19rem;
   left: 34.5rem;
   right: 30rem;
@@ -83,7 +83,7 @@
 }
 
 .sidebar {
-  position: fixed;
+  position: absolute;
   top: 6rem;
   right: 0;
   width: 30rem;
@@ -94,7 +94,7 @@
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;

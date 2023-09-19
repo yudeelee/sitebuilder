@@ -10,9 +10,12 @@ export const cl = createSlice({
   name: 'classes',
   initialState,
   reducers: {
-    insertClass(state, action) {
-      state.classes.push({ ...action.payload, id: state.latestId + 1 });
-      state.latestId += 1;
+    addClass(state, action) {
+      const cl = state.classes.find((cl) => cl.name === action.payload);
+      if (!cl) {
+        state.classes.push({ ...action.payload, id: state.latestId + 1 });
+        state.latestId += 1;
+      }
     },
     deleteClass(state, action) {
       return state;
@@ -23,5 +26,5 @@ export const cl = createSlice({
   },
 });
 
-export const { insertClass, deleteClass, setSelectedClass } = cl.actions;
+export const { addClass, deleteClass, setSelectedClass } = cl.actions;
 export default cl.reducer;

@@ -61,6 +61,8 @@ const Canvas = () => {
         const selectedClass = element.attr.className.split(' ')[0];
         dispatch(setSelectedClass(selectedClass));
         dispatch(setSelectedCl(selectedClass));
+      } else {
+        dispatch(setSelectedClass(null));
       }
     }
   };

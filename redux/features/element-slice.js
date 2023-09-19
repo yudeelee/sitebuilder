@@ -5,30 +5,30 @@ const initialState = {
     {
       id: 1,
       type: 'div',
-      attr: { className: 'main' },
+      attr: { className: '' },
       parentId: 0,
-      selectedClass: 'main',
+      selectedClass: '',
     },
     {
       id: 2,
       type: 'div',
-      attr: { className: 'inner outer line' },
+      attr: { className: '' },
       parentId: 1,
       selectedClass: null,
     },
     {
       id: 3,
       type: 'div',
-      attr: { className: 'inner outer' },
+      attr: { className: '' },
       parentId: 1,
-      selectedClass: 'outer',
+      selectedClass: '',
     },
     {
       id: 4,
       type: 'div',
-      attr: { className: 'fours' },
+      attr: { className: '' },
       parentId: 1,
-      selectedClass: 'fours',
+      selectedClass: '',
     },
   ],
   selected: null,
@@ -57,7 +57,7 @@ export const element = createSlice({
       const classes = state.elements
         .find((el) => el.id == state.selected)
         ?.attr?.className.split(' ');
-      if (!classes.includes(action.payload)) {
+      if (!classes?.includes(action.payload)) {
         classes?.push(action.payload);
         const newClasses = classes?.join(' ');
         state.elements.find((el) => el.id == state.selected).attr.className =
@@ -75,6 +75,30 @@ export const element = createSlice({
       state.elements.find((el) => el.id == state.selected).attr.className =
         newClasses;
     },
+    moveClass(state, action) {
+      const classes = state.elements
+        .find((el) => el.id == state.selected)
+        ?.attr?.className.split(' ');
+      let newClasses;
+      if (action.payload.direction === 'up') {
+        const idx = classes.findIndex((cl) => cl === action.payload.cl);
+        const buffer = classes[idx];
+        classes[idx] = classes[idx - 1];
+        classes[idx - 1] = buffer;
+        newClasses = classes.join(' ');
+        state.elements.find((el) => el.id == state.selected).attr.className =
+          newClasses;
+      }
+      if (action.payload.direction === 'down') {
+        const idx = classes.findIndex((cl) => cl === action.payload.cl);
+        const buffer = classes[idx];
+        classes[idx] = classes[idx + 1];
+        classes[idx + 1] = buffer;
+        newClasses = classes.join(' ');
+        state.elements.find((el) => el.id == state.selected).attr.className =
+          newClasses;
+      }
+    },
   },
 });
 
@@ -85,5 +109,6 @@ export const {
   setSelectedCl,
   insertClass,
   deleteClass,
+  moveClass,
 } = element.actions;
 export default element.reducer;

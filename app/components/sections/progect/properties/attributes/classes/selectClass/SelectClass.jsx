@@ -8,7 +8,11 @@ import { HiOutlineArrowSmDown } from 'react-icons/hi';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { IoClose } from 'react-icons/io5';
 import { setSelectedClass } from '@/redux/features/class-slice';
-import { setSelectedCl, deleteClass } from '@/redux/features/element-slice';
+import {
+  setSelectedCl,
+  deleteClass,
+  moveClass,
+} from '@/redux/features/element-slice';
 import { useDispatch } from 'react-redux';
 
 const SelectClass = ({
@@ -24,8 +28,6 @@ const SelectClass = ({
   const [open, setOpen] = useState(false);
 
   const removeClass = (cl) => {
-    // console.log(values[values.length - 1]);
-    // console.log(values[values.length - 2]);
     if (cl === selected) {
       if (cl == values[values.length - 1] && values.length > 1) {
         dispatch(setSelectedCl(values[values.length - 2]));
@@ -37,6 +39,7 @@ const SelectClass = ({
         dispatch(setSelectedCl(null));
         dispatch(setSelectedClass(null));
         dispatch(deleteClass(cl));
+        setOpen(false);
         return;
       }
       dispatch(setSelectedCl(values[values.length - 1]));
@@ -47,8 +50,16 @@ const SelectClass = ({
     dispatch(deleteClass(cl));
   };
 
+  const closeAll = () => {
+    setOpen(false);
+  };
+
   return (
     <div className={styles.selectClass}>
+      <div
+        className={`${styles.shadow} ${!open ? styles.hide : ''}`}
+        onClick={closeAll}
+      ></div>
       <div
         className={`${styles.selected} ${open ? styles.hide : ''}`}
         onClick={() => setOpen(!open)}
@@ -77,14 +88,26 @@ const SelectClass = ({
                 {idx === values.length - 1 ? (
                   ''
                 ) : (
-                  <div className={styles.itemButton}>
+                  <div
+                    className={styles.itemButton}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      dispatch(moveClass({ direction: 'down', cl: val }));
+                    }}
+                  >
                     <HiOutlineArrowSmDown />
                   </div>
                 )}
                 {idx === 0 ? (
                   <div className={styles.itemButtonEmpty}></div>
                 ) : (
-                  <div className={styles.itemButton}>
+                  <div
+                    className={styles.itemButton}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      dispatch(moveClass({ direction: 'up', cl: val }));
+                    }}
+                  >
                     <HiOutlineArrowSmUp />
                   </div>
                 )}
