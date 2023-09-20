@@ -1,0 +1,28 @@
+@import '../../../../styles/base';
+
+.header {
+  padding: 1rem;
+  background: $simple-gradient;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+}
+
+.open {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: $button-hover-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  &.hide {
+    transform: rotateZ(-90deg);
+  }
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}

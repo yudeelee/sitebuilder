@@ -9,6 +9,7 @@ import { insertClass } from '@/redux/features/element-slice';
 import { setSelectedClass, addClass, cl } from '@/redux/features/class-slice';
 import { TiPlus } from 'react-icons/ti';
 import { IoClose } from 'react-icons/io5';
+import SectionHeader from '@/app/components/ui/sectionHeader/SectionHeader';
 
 const psedo = ['---', ':hover', 'first-child', 'last-child'];
 
@@ -39,15 +40,7 @@ const Classes = () => {
 
   return (
     <div className={styles.classes}>
-      <div className={styles.header}>
-        Classes
-        <div
-          className={`${styles.open} ${!open ? styles.hide : ''}`}
-          onClick={() => setOpen(!open)}
-        >
-          <IoMdArrowDropdown />
-        </div>
-      </div>
+      <SectionHeader title='Classes' open={open} click={() => setOpen(!open)} />
       <div className={`${styles.body} ${!open ? styles.hide : ''}`}>
         <SelectClass values={classes} selected={selCl} />
         <button className={styles.addButton} onClick={() => setAdd(true)}>

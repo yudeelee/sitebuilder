@@ -1,0 +1,52 @@
+@import '../../../../../styles/base';
+
+.inputNP {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // padding: 1rem;
+  box-sizing: border-box;
+  &.small {
+    // display: inline-block;
+    flex-direction: column;
+    // align-items: flex-start;
+  }
+  .label {
+    font-size: 1.4rem;
+    &.small {
+      font-size: 1rem;
+    }
+  }
+  .inputWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    .input {
+      width: 5rem;
+      background-color: $document-color;
+      border-radius: 0.5rem;
+      border: none;
+      outline: none;
+      padding: 0.5rem 0.5rem;
+      color: $icon-color;
+      text-align: right;
+      &.dark {
+        background-color: $button-hover-color;
+      }
+    }
+    .clear {
+      width: 2rem;
+      height: 2rem;
+      background-color: $button-color;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+  }
+}

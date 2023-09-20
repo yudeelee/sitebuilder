@@ -11,9 +11,13 @@ export const cl = createSlice({
   initialState,
   reducers: {
     addClass(state, action) {
-      const cl = state.classes.find((cl) => cl.name === action.payload);
+      const cl = state.classes.find((cl) => cl.name === action.payload.name);
       if (!cl) {
-        state.classes.push({ ...action.payload, id: state.latestId + 1 });
+        state.classes.push({
+          ...action.payload,
+          id: state.latestId + 1,
+          properties: {},
+        });
         state.latestId += 1;
       }
     },
@@ -23,8 +27,15 @@ export const cl = createSlice({
     setSelectedClass(state, action) {
       state.selected = action.payload;
     },
+    setProperty(state, action) {
+      const cl = state.classes.find((c) => c.name === state.selected);
+      const clIdx = state.classes.findIndex((c) => c.name === state.selected);
+      cl.properties[action.payload.propName] = action.payload.propValue;
+      state.classes[clIdx] = cl;
+    },
   },
 });
 
-export const { addClass, deleteClass, setSelectedClass } = cl.actions;
+export const { addClass, deleteClass, setSelectedClass, setProperty } =
+  cl.actions;
 export default cl.reducer;

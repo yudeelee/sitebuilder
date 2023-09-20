@@ -3,10 +3,12 @@ import Header from '../components/sections/progect/progectHeader/page';
 import Canvas from '../components/sections/progect/canvas/Canvas';
 import Elements from '../components/sections/progect/elements/Elements';
 import Properties from '../components/sections/progect/properties/Properties';
+import Styles from '../components/styles/styles';
 
 const Progect = () => {
   return (
     <div className={styles.progect}>
+      <Styles />
       <div className={styles.header}>
         <Header />
       </div>
