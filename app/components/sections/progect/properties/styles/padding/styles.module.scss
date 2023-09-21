@@ -3,8 +3,11 @@
 .body {
   transform-origin: top center;
   transition: all 0.3s;
+  max-height: 30rem;
   &.hide {
+    max-height: 0px;
     transform: scaleY(0);
+    padding: 0;
     opacity: 0;
   }
 }

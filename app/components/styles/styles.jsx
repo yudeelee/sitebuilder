@@ -7,9 +7,15 @@ const Styles = () => {
   let result = '';
   classes.forEach((element) => {
     result += '.' + element.name + '{ ';
+    if (element?.properties?.margin) {
+      result += 'margin: ' + element.properties.margin + ' !important; ';
+    }
+    if (element?.properties?.padding) {
+      result += 'padding: ' + element.properties.padding + ' !important; ';
+    }
     for (let key in element.properties) {
-      if (key.indexOf('padding') !== -1 || key.indexOf('margin') !== -1) {
-        result += key + ': ' + element.properties[key] + 'px !important; ';
+      if (key !== 'padding' && key !== 'margin') {
+        result += key + ': ' + element.properties[key] + ' !important; ';
       }
     }
     result += '}';
