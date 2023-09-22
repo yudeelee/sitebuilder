@@ -54,9 +54,10 @@ export const element = createSlice({
         action.payload;
     },
     insertClass(state, action) {
-      const classes = state.elements
-        .find((el) => el.id == state.selected)
-        ?.attr?.className.split(' ');
+      const classes =
+        state.elements
+          .find((el) => el.id == state.selected)
+          ?.attr?.className?.split(' ') || [];
       if (!classes?.includes(action.payload)) {
         classes?.push(action.payload);
         const newClasses = classes?.join(' ');

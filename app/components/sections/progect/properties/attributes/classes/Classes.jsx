@@ -30,7 +30,7 @@ const Classes = () => {
   const cls = useSelector((state) => state.class.classes);
   let classNames = cls.map((cl) => cl.name);
   classNames = classNames.filter(
-    (cl) => !classes.includes(cl) && cl.indexOf(newClass) !== -1
+    (cl) => !classes?.includes(cl) && cl.indexOf(newClass) !== -1
   );
 
   const closeAll = () => {

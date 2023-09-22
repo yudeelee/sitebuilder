@@ -24,7 +24,7 @@ const Canvas = () => {
         st[key] = element[key];
       }
     });
-    // console.log(st);
+    console.log(st);
     if (root.id === selected) {
       root.attr.className += ' ' + 'selected';
     }
@@ -49,6 +49,7 @@ const Canvas = () => {
       {
         ...root.attr,
         'data-id': root.id,
+        style: st,
         className:
           root.id == selected
             ? root.attr.className + ' ' + styles.selected
