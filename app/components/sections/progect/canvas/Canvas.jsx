@@ -15,11 +15,11 @@ const Canvas = () => {
   const renderElements = (id = 1) => {
     const root = elements.find((el) => el.id === id);
     let elCls = root.attr.className;
-    elCls = elCls.split(' ');
-    let elClsAtt = elCls.map((el) => cls.find((cl) => cl.name === el));
-    elClsAtt = elClsAtt.map((el) => el?.properties);
+    elCls = elCls?.split(' ');
+    let elClsAtt = elCls?.map((el) => cls.find((cl) => cl.name === el));
+    elClsAtt = elClsAtt?.map((el) => el?.properties);
     let st = {};
-    elClsAtt.forEach((element) => {
+    elClsAtt?.forEach((element) => {
       for (const key in element) {
         st[key] = element[key];
       }
