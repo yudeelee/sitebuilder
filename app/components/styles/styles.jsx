@@ -8,14 +8,14 @@ const Styles = () => {
   classes.forEach((element) => {
     result += '.' + element.name + '{ ';
     if (element?.properties?.margin) {
-      result += 'margin: ' + element.properties.margin + ' !important; ';
+      result += 'margin: ' + element.properties.margin + '; ';
     }
     if (element?.properties?.padding) {
-      result += 'padding: ' + element.properties.padding + ' !important; ';
+      result += 'padding: ' + element.properties.padding + '; ';
     }
     for (let key in element.properties) {
       if (key !== 'padding' && key !== 'margin') {
-        result += key + ': ' + element.properties[key] + ' !important; ';
+        result += key + ': ' + element.properties[key] + '; ';
       }
     }
     result += '}';

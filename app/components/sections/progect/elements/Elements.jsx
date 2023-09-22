@@ -12,7 +12,7 @@ const Elements = () => {
     dispatch(
       insertElement({
         type: type,
-        attr: { className: 'inner' },
+        attr: {},
         parentId: +selected,
       })
     );

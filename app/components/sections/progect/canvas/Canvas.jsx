@@ -10,9 +10,21 @@ const Canvas = () => {
   const dispatch = useDispatch();
   const elements = useSelector((state) => state.element.elements);
   const selected = useSelector((state) => state.element.selected);
+  const cls = useSelector((state) => state.class.classes);
 
   const renderElements = (id = 1) => {
     const root = elements.find((el) => el.id === id);
+    let elCls = root.attr.className;
+    elCls = elCls.split(' ');
+    let elClsAtt = elCls.map((el) => cls.find((cl) => cl.name === el));
+    elClsAtt = elClsAtt.map((el) => el?.properties);
+    let st = {};
+    elClsAtt.forEach((element) => {
+      for (const key in element) {
+        st[key] = element[key];
+      }
+    });
+    // console.log(st);
     if (root.id === selected) {
       root.attr.className += ' ' + 'selected';
     }
@@ -23,6 +35,7 @@ const Canvas = () => {
         {
           ...root.attr,
           'data-id': root.id,
+          style: st,
           className:
             root.id == selected
               ? root.attr.className + ' ' + styles.selected
