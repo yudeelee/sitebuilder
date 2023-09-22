@@ -19,3 +19,10 @@ a {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
+
+.sketch-picker {
+  background-color: $button-hover-color !important;
+  label {
+    color: $icon-color !important;
+  }
+}

@@ -15,19 +15,8 @@
   background-color: $button-hover-color;
   color: $icon-color;
   font-size: 1.2rem;
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0;
   cursor: pointer;
-  &.left {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-  }
-  &.right {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
-  &.full {
-    border-radius: 0;
-  }
   &.open {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -36,6 +25,7 @@
 
 .items {
   position: absolute;
+  left: -3rem;
   z-index: 40;
   background-color: $button-hover-color;
   padding: 0.5rem;
@@ -61,6 +51,7 @@
 
 .shadow {
   position: absolute;
+  background-color: rgba(0, 255, 255, 0.069);
   z-index: 30;
   top: -10000px;
   bottom: -10000px;

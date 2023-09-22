@@ -1,22 +1,23 @@
 import SectionHeader from '@/app/components/ui/sectionHeader/SectionHeader';
 import styles from './styles.module.scss';
 import { useState } from 'react';
-import InputNP from '@/app/components/ui/inputs/inputNP/InputNP';
+import InputNPC from '@/app/components/ui/inputs/inputNPC/InputNPC';
 import { useDispatch } from 'react-redux';
 import { setProperty } from '@/redux/features/class-slice';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import InputNP from '@/app/components/ui/inputs/inputNP/InputNP';
 
-const Padding = ({
-  padding,
-  paddingTop,
-  paddingRight,
-  paddingBottom,
-  paddingLeft,
-  margin,
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
+const Border = ({
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  borderRadius,
+  borderRadiusTopLeft,
+  borderRadiusTopRight,
+  borderRadiusBottomLeft,
+  borderRadiusBottomRight,
 }) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
@@ -24,19 +25,15 @@ const Padding = ({
   const [marginOpen, setMarginOpen] = useState(false);
   return (
     <div className={styles.padding}>
-      <SectionHeader
-        title='Padding Margin'
-        open={open}
-        click={() => setOpen(!open)}
-      />
+      <SectionHeader title='Border' open={open} click={() => setOpen(!open)} />
       <div className={`${styles.body} ${!open ? styles.hide : ''}`}>
         <div className={styles.paddingAll}>
           <div className={styles.paddingAllWrapper}>
-            <InputNP
-              value={padding}
-              label='Padding'
+            <InputNPC
+              value={border}
+              label='Border'
               change={(value) =>
-                dispatch(setProperty({ propName: 'padding', propValue: value }))
+                dispatch(setProperty({ propName: 'border', propValue: value }))
               }
             />
           </div>
@@ -51,51 +48,51 @@ const Padding = ({
           className={`${styles.paddingEach} ${!paddingOpen ? styles.hide : ''}`}
         >
           <div className={styles.top}>
-            <InputNP
+            <InputNPC
               size='small'
-              value={paddingTop}
-              //   label='Top'
+              value={borderTop}
+              label='borderTop'
               change={(value) =>
                 dispatch(
-                  setProperty({ propName: 'padding-top', propValue: value })
+                  setProperty({ propName: 'border-top', propValue: value })
                 )
               }
             />
           </div>
           <div className={styles.middle}>
             <div className={styles.left}>
-              <InputNP
+              <InputNPC
                 size='small'
-                value={paddingLeft}
-                // label='Left'
+                value={borderLeft}
+                label='borderLeft'
                 change={(value) =>
                   dispatch(
-                    setProperty({ propName: 'padding-left', propValue: value })
+                    setProperty({ propName: 'border-left', propValue: value })
                   )
                 }
               />
             </div>
             <div className={styles.right}>
-              <InputNP
+              <InputNPC
                 size='small'
-                value={paddingRight}
-                // label='Right'
+                value={borderRight}
+                label='borderRight'
                 change={(value) =>
                   dispatch(
-                    setProperty({ propName: 'padding-right', propValue: value })
+                    setProperty({ propName: 'border-right', propValue: value })
                   )
                 }
               />
             </div>
           </div>
           <div className={styles.bottom}>
-            <InputNP
+            <InputNPC
               size='small'
-              value={paddingBottom}
-              //   label='Bottom'
+              value={borderBottom}
+              label='borderBottom'
               change={(value) =>
                 dispatch(
-                  setProperty({ propName: 'padding-bottom', propValue: value })
+                  setProperty({ propName: 'border-bottom', propValue: value })
                 )
               }
             />
@@ -104,10 +101,12 @@ const Padding = ({
         <div className={styles.paddingAll}>
           <div className={styles.paddingAllWrapper}>
             <InputNP
-              value={margin}
-              label='Margin'
+              value={borderRadius}
+              label='Border-radius'
               change={(value) =>
-                dispatch(setProperty({ propName: 'margin', propValue: value }))
+                dispatch(
+                  setProperty({ propName: 'border-radius', propValue: value })
+                )
               }
             />
           </div>
@@ -121,27 +120,18 @@ const Padding = ({
         <div
           className={`${styles.paddingEach} ${!marginOpen ? styles.hide : ''}`}
         >
-          <div className={styles.top}>
-            <InputNP
-              size='small'
-              value={marginTop}
-              //   label='Top'
-              change={(value) =>
-                dispatch(
-                  setProperty({ propName: 'margin-top', propValue: value })
-                )
-              }
-            />
-          </div>
           <div className={styles.middle}>
             <div className={styles.left}>
               <InputNP
                 size='small'
-                value={marginLeft}
-                // label='Left'
+                value={borderRadiusTopLeft}
+                //   label='Top'
                 change={(value) =>
                   dispatch(
-                    setProperty({ propName: 'margin-left', propValue: value })
+                    setProperty({
+                      propName: 'border-top-left-radius',
+                      propValue: value,
+                    })
                   )
                 }
               />
@@ -149,27 +139,50 @@ const Padding = ({
             <div className={styles.right}>
               <InputNP
                 size='small'
-                value={marginRight}
+                value={borderRadiusTopRight}
                 // label='Right'
                 change={(value) =>
                   dispatch(
-                    setProperty({ propName: 'margin-right', propValue: value })
+                    setProperty({
+                      propName: 'border-top-right-radius',
+                      propValue: value,
+                    })
                   )
                 }
               />
             </div>
           </div>
-          <div className={styles.bottom}>
-            <InputNP
-              size='small'
-              value={marginBottom}
-              //   label='Bottom'
-              change={(value) =>
-                dispatch(
-                  setProperty({ propName: 'margin-bottom', propValue: value })
-                )
-              }
-            />
+          <div className={styles.middle}>
+            <div className={styles.left}>
+              <InputNP
+                size='small'
+                value={borderRadiusBottomLeft}
+                // label='Left'
+                change={(value) =>
+                  dispatch(
+                    setProperty({
+                      propName: 'border-bottom-left-radius',
+                      propValue: value,
+                    })
+                  )
+                }
+              />
+            </div>
+            <div className={styles.right}>
+              <InputNP
+                size='small'
+                value={borderRadiusBottomRight}
+                //   label='Bottom'
+                change={(value) =>
+                  dispatch(
+                    setProperty({
+                      propName: 'border-bottom-right-radius',
+                      propValue: value,
+                    })
+                  )
+                }
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -177,4 +190,4 @@ const Padding = ({
   );
 };
 
-export default Padding;
+export default Border;

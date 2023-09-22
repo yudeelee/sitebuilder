@@ -103,3 +103,16 @@
   border-top: 2px solid $background-color;
   box-sizing: border-box;
 }
+
+.sss {
+  position: fixed;
+  z-index: 25;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  &.show {
+    display: block;
+  }
+}

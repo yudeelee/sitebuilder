@@ -9,7 +9,7 @@ import { setProperty } from '@/redux/features/class-slice';
 
 const Width = ({ width, minWidth, maxWidth, height, minHeight, maxHeight }) => {
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className={styles.width}>
       <SectionHeader

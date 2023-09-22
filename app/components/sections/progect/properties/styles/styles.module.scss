@@ -1,0 +1,15 @@
+.st {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100vh - 166px);
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(33, 33, 33);
+    outline: 1px solid rgb(44, 44, 44);
+  }
+}

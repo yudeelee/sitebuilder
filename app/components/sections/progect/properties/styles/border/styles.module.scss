@@ -1,0 +1,72 @@
+@import '../../../../../../../styles/base';
+
+.body {
+  position: relative;
+  transform-origin: top center;
+  transition: all 0.3s;
+  max-height: 30rem;
+  &.hide {
+    max-height: 0px;
+    transform: scaleY(0);
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+.paddingAll {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.paddingAllWrapper {
+  width: 24.5rem;
+}
+
+.open {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: $button-hover-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  &.hide {
+    transform: rotateZ(-90deg);
+  }
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+.paddingEach {
+  transform-origin: top center;
+  transition: all 0.3s;
+  padding: 1rem 1rem 1.5rem;
+  border-top: 1px solid $button-hover-color;
+  border-bottom: 1px solid $button-hover-color;
+  max-height: 10rem;
+  &.hide {
+    max-height: 0px;
+    transform: scaleY(0);
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}

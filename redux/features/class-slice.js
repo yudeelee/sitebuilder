@@ -32,6 +32,9 @@ export const cl = createSlice({
       const clIdx = state.classes.findIndex((c) => c.name === state.selected);
       cl.properties[action.payload.propName] = action.payload.propValue;
       state.classes[clIdx] = cl;
+      console.log(
+        state.classes.find((c) => c.name === state.selected).properties.border
+      );
     },
   },
 });
